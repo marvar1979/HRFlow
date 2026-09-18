@@ -1,5 +1,7 @@
 # HRFlow — Human Resources Management
 
+#LINK: https://marvar1979.github.io/HRFlow/
+
 HRFlow es una aplicación web profesional de gestión de Recursos Humanos construida con HTML5, CSS3, JavaScript y JSON.
 
 ## Módulos incluidos
@@ -29,8 +31,4 @@ HRFlow es una aplicación web profesional de gestión de Recursos Humanos constr
 - Payroll: `payroll@hrflow.local` / `Payroll123!`
 - Employee: `employee@hrflow.local` / `Employee123!`
 
-## Ejecución
-Se recomienda VS Code + Live Server. También puede abrirse directamente; en ese caso se usa `js/data-seed.js` como respaldo cuando el navegador bloquea `fetch()` de JSON.
 
-## Importante para uso empresarial real
-Esta edición es un front-end funcional y robusto de demostración. Los cambios se almacenan en `localStorage` del navegador y las credenciales demo están en los datos estáticos. Para manejar información real de empleados en una empresa debe conectarse a un backend seguro con base de datos centralizada, autenticación robusta, autorización en servidor, cifrado, gestión de archivos y auditoría centralizada.
