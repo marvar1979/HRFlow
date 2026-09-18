@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Encuesta de clima 2026",
+    "audience": "All",
+    "publishedAt": "2026-09-15",
+    "authorId": 2,
+    "status": "Published",
+    "body": "La encuesta de clima estará disponible hasta el 25 de septiembre."
+  },
+  {
+    "id": 2,
+    "title": "Feriado departamental",
+    "audience": "La Paz",
+    "publishedAt": "2026-09-14",
+    "authorId": 2,
+    "status": "Published",
+    "body": "Se recuerda el cronograma especial de atención para la sede La Paz."
+  }
+]

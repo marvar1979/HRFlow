@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <title>HRFlow — Human Resources Management</title>
+
+  <meta
+    name="description"
+    content="HRFlow es una plataforma profesional de gestión de Recursos Humanos construida con HTML, CSS, JavaScript y JSON."
+  />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/app.css" />
+
+  <style>
+    #authScreen {
+      width: 100%;
+      min-height: 100vh;
+      padding: 30px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(33, 135, 149, 0.10), transparent 30%),
+        radial-gradient(circle at 85% 90%, rgba(20, 90, 105, 0.08), transparent 30%),
+        linear-gradient(135deg, #edf6f5 0%, #d9eae8 100%);
+    }
+
+    #authScreen,
+    #authScreen * {
+      box-sizing: border-box;
+    }
+
+    #authScreen .auth-shell {
+      width: 100%;
+      max-width: 650px;
+      min-height: auto;
+      margin: 0 auto;
+      padding: 0;
+      display: block;
+      background: transparent;
+    }
+
+    #authScreen .auth-form-panel {
+      width: 100%;
+      min-height: auto;
+      margin: 0;
+      padding: 0;
+      display: block;
+      background: transparent;
+    }
+
+    #authScreen .auth-card {
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 42px 44px;
+      border: 1px solid rgba(15, 23, 42, 0.07);
+      border-radius: 24px;
+      background: #ffffff;
+      color: #20262b;
+      box-shadow:
+        0 28px 65px rgba(15, 58, 66, 0.11),
+        0 4px 14px rgba(15, 58, 66, 0.04);
+    }
+
+    #authScreen .login-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    #authScreen .login-brand img {
+      width: 54px;
+      height: 54px;
+      display: block;
+      object-fit: contain;
+    }
+
+    #authScreen .login-brand-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    #authScreen .login-brand-copy span {
+      color: #218795;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    #authScreen .login-brand-copy strong {
+      color: #172027;
+      font-size: 25px;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    #authScreen .auth-heading {
+      margin: 0 0 28px;
+    }
+
+    #authScreen .auth-heading .overline {
+      display: none !important;
+    }
+
+    #authScreen .auth-heading h2 {
+      margin: 0 0 8px;
+      color: #172027;
+      font-size: 32px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    #authScreen .auth-heading p {
+      margin: 0;
+      color: #707a83;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    #authScreen .auth-form {
+      width: 100%;
+      display: grid;
+      gap: 18px;
+    }
+
+    #authScreen .field {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    #authScreen .field-label {
+      display: block;
+      color: #20272d;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    #authScreen .input-with-icon {
+      position: relative !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      height: 54px !important;
+      min-height: 54px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: stretch !important;
+      justify-content: flex-start !important;
+      gap: 0 !important;
+      overflow: hidden !important;
+      border: 1px solid #d3dce2 !important;
+      border-radius: 9px !important;
+      background: #ffffff !important;
+      box-shadow: none !important;
+    }
+
+    #authScreen .input-with-icon:focus-within {
+      border-color: #218795 !important;
+      box-shadow: 0 0 0 3px rgba(33, 135, 149, 0.10) !important;
+    }
+
+    #authScreen .input-with-icon > .input-icon {
+      position: static !important;
+      inset: auto !important;
+      top: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+      left: auto !important;
+      transform: none !important;
+      translate: none !important;
+      width: 54px !important;
+      min-width: 54px !important;
+      max-width: 54px !important;
+      height: 52px !important;
+      min-height: 52px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      flex: 0 0 54px !important;
+      display: grid !important;
+      place-items: center !important;
+      border: 0 !important;
+      border-right: 1px solid #dbe1e5 !important;
+      border-radius: 0 !important;
+      background: #fbfcfc !important;
+      color: #5c6871 !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+    }
+
+    #authScreen .input-with-icon > .input-icon svg {
+      position: static !important;
+      width: 18px !important;
+      height: 18px !important;
+      margin: 0 !important;
+      display: block !important;
+      transform: none !important;
+    }
+
+    #authScreen .input-with-icon > input {
+      position: static !important;
+      inset: auto !important;
+      transform: none !important;
+      translate: none !important;
+      flex: 1 1 0% !important;
+      width: auto !important;
+      min-width: 0 !important;
+      max-width: none !important;
+      height: 52px !important;
+      min-height: 52px !important;
+      margin: 0 !important;
+      padding: 0 16px !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      outline: 0 !important;
+      background: #ffffff !important;
+      box-shadow: none !important;
+      color: #20262b !important;
+      -webkit-text-fill-color: #20262b !important;
+      font-family: inherit !important;
+      font-size: 15px !important;
+      font-weight: 500 !important;
+      font-style: normal !important;
+      line-height: 52px !important;
+      letter-spacing: normal !important;
+      text-align: left !important;
+      text-indent: 0 !important;
+      text-transform: none !important;
+      text-overflow: clip !important;
+      white-space: nowrap !important;
+      direction: ltr !important;
+      opacity: 1 !important;
+      overflow: visible !important;
+      z-index: 2 !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+    }
+
+    #authScreen .input-with-icon > input::placeholder {
+      color: #9aa4ac !important;
+      -webkit-text-fill-color: #9aa4ac !important;
+      opacity: 1 !important;
+    }
+
+    #authScreen .input-with-icon > input:-webkit-autofill,
+    #authScreen .input-with-icon > input:-webkit-autofill:hover,
+    #authScreen .input-with-icon > input:-webkit-autofill:focus,
+    #authScreen .input-with-icon > input:-webkit-autofill:active {
+      -webkit-text-fill-color: #20262b !important;
+      -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+      box-shadow: 0 0 0 1000px #ffffff inset !important;
+      caret-color: #20262b !important;
+    }
+
+    #authScreen .input-with-icon > .inline-icon-btn {
+      position: static !important;
+      inset: auto !important;
+      top: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+      left: auto !important;
+      transform: none !important;
+      translate: none !important;
+      width: 54px !important;
+      min-width: 54px !important;
+      max-width: 54px !important;
+      height: 52px !important;
+      min-height: 52px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      flex: 0 0 54px !important;
+      display: grid !important;
+      place-items: center !important;
+      border: 0 !important;
+      border-left: 1px solid #dbe1e5 !important;
+      border-radius: 0 !important;
+      outline: none !important;
+      background: #fbfcfc !important;
+      color: #68747d !important;
+      box-shadow: none !important;
+      cursor: pointer !important;
+      z-index: 3 !important;
+    }
+
+    #authScreen .input-with-icon > .inline-icon-btn:hover {
+      background: #f0f6f5 !important;
+      color: #218795 !important;
+    }
+
+    #authScreen .input-with-icon > .inline-icon-btn svg {
+      position: static !important;
+      width: 18px !important;
+      height: 18px !important;
+      margin: 0 !important;
+      transform: none !important;
+    }
+
+    #authScreen .auth-form .btn-primary {
+      position: static !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      height: 54px !important;
+      min-height: 54px !important;
+      margin: 3px 0 0 !important;
+      padding: 0 20px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 9px !important;
+      border: 0 !important;
+      border-radius: 10px !important;
+      background: #218795 !important;
+      color: #ffffff !important;
+      font-size: 15px !important;
+      font-weight: 800 !important;
+      box-shadow: 0 10px 22px rgba(33, 135, 149, 0.18) !important;
+      cursor: pointer;
+    }
+
+    #authScreen .auth-form .btn-primary:hover {
+      background: #197985 !important;
+      transform: translateY(-1px);
+    }
+
+    #authScreen .auth-form .btn-primary svg {
+      width: 18px !important;
+      height: 18px !important;
+    }
+
+    #authScreen .divider {
+      width: 100%;
+      margin: 28px 0 17px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+      color: #8b949b !important;
+      font-size: 12px !important;
+    }
+
+    #authScreen .divider::before,
+    #authScreen .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #e3e7ea;
+    }
+
+    #authScreen .quick-login-grid {
+      width: 100%;
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 10px !important;
+    }
+
+    #authScreen .quick-login-grid > * {
+      position: static !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      min-height: 66px !important;
+      margin: 0 !important;
+      padding: 11px 13px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      gap: 11px !important;
+      overflow: hidden !important;
+      border: 1px solid #e2e7ea !important;
+      border-radius: 11px !important;
+      background: #f8fafb !important;
+      color: #2c3439 !important;
+      box-shadow: none !important;
+      cursor: pointer !important;
+      text-align: left !important;
+    }
+
+    #authScreen .quick-login-grid > *:hover {
+      background: #eef8f7 !important;
+      border-color: #badeda !important;
+      transform: translateY(-1px);
+    }
+
+    #authScreen .quick-login-grid .avatar {
+      position: static !important;
+      width: 36px !important;
+      min-width: 36px !important;
+      max-width: 36px !important;
+      height: 36px !important;
+      min-height: 36px !important;
+      margin: 0 !important;
+      display: grid !important;
+      place-items: center !important;
+      flex: 0 0 36px !important;
+      border-radius: 9px !important;
+      font-size: 10px !important;
+    }
+
+    #authScreen .quick-login-grid strong {
+      display: block !important;
+      color: #253039 !important;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      line-height: 1.25 !important;
+      white-space: normal !important;
+    }
+
+    #authScreen .quick-login-grid small {
+      display: block !important;
+      margin-top: 2px !important;
+      color: #78838b !important;
+      font-size: 11px !important;
+      line-height: 1.25 !important;
+      white-space: normal !important;
+    }
+
+    #authScreen .auth-security-note {
+      display: none !important;
+    }
+
+    @media (max-width: 660px) {
+      #authScreen {
+        padding: 16px 10px;
+        align-items: flex-start;
+      }
+
+      #authScreen .auth-card {
+        padding: 30px 22px;
+        border-radius: 19px;
+      }
+
+      #authScreen .auth-heading h2 {
+        font-size: 28px;
+      }
+
+      #authScreen .quick-login-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="theme-light">
+
+  <div id="authScreen" class="auth-screen">
+    <div class="auth-shell">
+      <section class="auth-form-panel">
+        <div class="auth-card">
+
+          <div class="login-brand">
+            <img
+              src="assets/img/hrflow-logo.svg"
+              alt="HRFlow"
+            />
+
+            <div class="login-brand-copy">
+              <span>People Operations</span>
+              <strong>HRFlow</strong>
+            </div>
+          </div>
+
+          <div class="auth-heading">
+            <span class="overline">ACCESO AL WORKSPACE</span>
+            <h2>Bienvenido</h2>
+            <p>Ingresa tus credenciales para acceder al sistema.</p>
+          </div>
+
+          <form
+            id="loginForm"
+            class="auth-form"
+            autocomplete="off"
+          >
+
+            <label class="field">
+              <span class="field-label">Correo</span>
+
+              <div class="input-with-icon">
+                <span
+                  id="loginMailIcon"
+                  class="input-icon"
+                ></span>
+
+                <input
+                  id="loginEmail"
+                  type="email"
+                  placeholder="admin@hrflow.local"
+                  autocomplete="username"
+                  spellcheck="false"
+                  required
+                />
+              </div>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Contraseña</span>
+
+              <div class="input-with-icon">
+                <span
+                  id="loginLockIcon"
+                  class="input-icon"
+                ></span>
+
+                <input
+                  id="loginPassword"
+                  type="password"
+                  placeholder="••••••••••"
+                  autocomplete="current-password"
+                  spellcheck="false"
+                  required
+                />
+
+                <button
+                  id="togglePassword"
+                  class="inline-icon-btn"
+                  type="button"
+                  title="Mostrar u ocultar contraseña"
+                ></button>
+              </div>
+            </label>
+
+            <button
+              class="btn btn-primary btn-xl btn-full"
+              type="submit"
+            >
+              <span id="loginEnterIcon"></span>
+              <span>Ingresar</span>
+            </button>
+
+          </form>
+
+          <div class="divider">
+            <span>Acceso rápido</span>
+          </div>
+
+          <div
+            id="quickLoginGrid"
+            class="quick-login-grid"
+          ></div>
+
+          <div class="auth-security-note">
+            <span id="shieldIcon"></span>
+            <p>Entorno demostrativo.</p>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div
+    id="app"
+    class="app-shell hidden"
+  >
+
+    <aside
+      id="sidebar"
+      class="sidebar"
+    >
+
+      <div class="sidebar-head">
+
+        <div class="brand-lockup">
+
+          <img
+            src="assets/img/hrflow-logo.svg"
+            alt="HRFlow"
+            class="brand-mark brand-mark-sm"
+          />
+
+          <div class="sidebar-brand-text">
+            <span class="brand-kicker">PEOPLE</span>
+            <strong>HRFLOW</strong>
+          </div>
+
+        </div>
+
+        <button
+          id="collapseSidebarBtn"
+          class="icon-button subtle"
+          title="Contraer menú"
+        ></button>
+
+      </div>
+
+      <div class="workspace-switcher">
+
+        <div class="workspace-icon">
+          HR
+        </div>
+
+        <div class="workspace-copy">
+          <span class="workspace-label">Workspace</span>
+          <strong>HRFlow Company</strong>
+        </div>
+
+        <span id="workspaceChevron"></span>
+
+      </div>
+
+      <nav
+        id="sidebarNav"
+        class="sidebar-nav"
+      ></nav>
+
+      <div class="sidebar-bottom">
+
+        <button
+          id="openCommandBtn"
+          class="sidebar-command"
+        >
+          <span id="commandIcon"></span>
+          <span>Buscar en HRFlow</span>
+          <kbd>Ctrl K</kbd>
+        </button>
+
+        <div class="sidebar-user">
+
+          <div
+            id="sidebarAvatar"
+            class="avatar avatar-lg"
+          >
+            HR
+          </div>
+
+          <div class="sidebar-user-copy">
+            <strong id="sidebarUserName">Usuario</strong>
+            <span id="sidebarUserRole">Rol</span>
+          </div>
+
+          <button
+            id="logoutBtn"
+            class="icon-button danger-ghost"
+            title="Cerrar sesión"
+          ></button>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <main class="main-shell">
+
+      <header class="topbar">
+
+        <div class="topbar-left">
+
+          <button
+            id="mobileMenuBtn"
+            class="icon-button subtle mobile-only"
+            title="Abrir navegación"
+          ></button>
+
+          <div>
+
+            <div
+              class="breadcrumb"
+              id="breadcrumbText"
+            >
+              Overview / Dashboard
+            </div>
+
+            <h1 id="pageTitle">
+              Dashboard
+            </h1>
+
+          </div>
+
+        </div>
+
+        <div class="topbar-actions">
+
+          <button
+            id="globalCreateBtn"
+            class="btn btn-primary"
+          >
+            <span id="globalCreateIcon"></span>
+            <span>Crear</span>
+          </button>
+
+          <button
+            id="notificationsBtn"
+            class="icon-button"
+            title="Notificaciones"
+          >
+            <span id="notificationIcon"></span>
+
+            <span
+              id="notificationDot"
+              class="notification-dot"
+            ></span>
+          </button>
+
+          <button
+            id="themeToggle"
+            class="icon-button"
+            title="Cambiar tema"
+          ></button>
+
+          <div class="topbar-profile">
+
+            <div
+              id="topbarAvatar"
+              class="avatar"
+            >
+              HR
+            </div>
+
+            <div>
+              <strong id="topbarName">Usuario</strong>
+              <span id="topbarRole">Rol</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+      <div class="content-shell">
+
+        <section
+          id="contextBar"
+          class="context-bar"
+        ></section>
+
+        <section
+          id="view-dashboard"
+          class="view"
+        ></section>
+
+        <section
+          id="view-employees"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-departments"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-attendance"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-leave"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-contracts"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-performance"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-onboarding"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-documents"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-announcements"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-org"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-reports"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-audit"
+          class="view hidden"
+        ></section>
+
+        <section
+          id="view-settings"
+          class="view hidden"
+        ></section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <div
+    id="modalOverlay"
+    class="modal-overlay hidden"
+    aria-hidden="true"
+  >
+
+    <div
+      id="modalCard"
+      class="modal-card"
+      role="dialog"
+      aria-modal="true"
+    >
+
+      <div class="modal-head">
+
+        <div>
+          <span
+            id="modalEyebrow"
+            class="overline"
+          >
+            HRFLOW
+          </span>
+
+          <h2 id="modalTitle">
+            Formulario
+          </h2>
+
+          <p id="modalSubtitle">
+            Completa la información requerida.
+          </p>
+        </div>
+
+        <button
+          id="closeModalBtn"
+          class="icon-button subtle"
+          type="button"
+          title="Cerrar"
+        ></button>
+
+      </div>
+
+      <div
+        id="modalBody"
+        class="modal-body"
+      ></div>
+
+    </div>
+
+  </div>
+
+  <div
+    id="rightDrawerOverlay"
+    class="drawer-overlay hidden"
+  ></div>
+
+  <aside
+    id="rightDrawer"
+    class="right-drawer hidden"
+  >
+
+    <div class="drawer-head">
+
+      <div>
+        <span
+          id="drawerEyebrow"
+          class="overline"
+        >
+          DETAIL
+        </span>
+
+        <h2 id="drawerTitle">
+          Detalle
+        </h2>
+      </div>
+
+      <button
+        id="closeDrawerBtn"
+        class="icon-button subtle"
+        title="Cerrar"
+      ></button>
+
+    </div>
+
+    <div
+      id="drawerBody"
+      class="drawer-body"
+    ></div>
+
+  </aside>
+
+  <div
+    id="commandOverlay"
+    class="command-overlay hidden"
+  >
+
+    <div class="command-palette">
+
+      <div class="command-search">
+
+        <span id="commandSearchIcon"></span>
+
+        <input
+          id="commandInput"
+          type="search"
+          placeholder="Buscar empleados, contratos, vacaciones…"
+        />
+
+        <kbd>
+          ESC
+        </kbd>
+
+      </div>
+
+      <div
+        id="commandResults"
+        class="command-results"
+      ></div>
+
+    </div>
+
+  </div>
+
+  <div
+    id="notificationsPanel"
+    class="floating-panel hidden"
+  ></div>
+
+  <div
+    id="toastContainer"
+    class="toast-container"
+  ></div>
+
+  <input
+    id="importBackupInput"
+    type="file"
+    accept="application/json"
+    hidden
+  />
+
+  <script src="js/data-seed.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "employeeId": 1001,
+    "category": "Identity",
+    "name": "Documento de identidad",
+    "expiresAt": null,
+    "status": "Valid"
+  },
+  {
+    "id": 2,
+    "employeeId": 1004,
+    "category": "Training",
+    "name": "Certificación Seguridad",
+    "expiresAt": "2026-10-20",
+    "status": "Expiring"
+  },
+  {
+    "id": 3,
+    "employeeId": 1010,
+    "category": "Medical",
+    "name": "Seguro médico",
+    "expiresAt": "2027-02-01",
+    "status": "Valid"
+  },
+  {
+    "id": 4,
+    "employeeId": 1022,
+    "category": "Contract",
+    "name": "Anexo contractual",
+    "expiresAt": null,
+    "status": "Valid"
+  }
+]

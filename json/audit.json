@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "date": "2026-09-18 08:12",
+    "userId": 2,
+    "action": "APPROVE_LEAVE",
+    "entity": "Leave #2",
+    "detail": "Solicitud médica aprobada."
+  },
+  {
+    "id": 2,
+    "date": "2026-09-17 17:44",
+    "userId": 1,
+    "action": "UPDATE_EMPLOYEE",
+    "entity": "EMP-1008",
+    "detail": "Actualización de modalidad de trabajo."
+  },
+  {
+    "id": 3,
+    "date": "2026-09-17 15:10",
+    "userId": 5,
+    "action": "UPDATE_CONTRACT",
+    "entity": "Contract #2016",
+    "detail": "Actualización salarial registrada."
+  }
+]

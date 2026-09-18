@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "role": "HR Manager",
+    "title": "2 solicitudes pendientes",
+    "body": "Revisa las solicitudes de vacaciones y permisos.",
+    "read": false
+  },
+  {
+    "id": 2,
+    "role": "HR Admin",
+    "title": "Contrato próximo a vencer",
+    "body": "Existe un contrato a plazo fijo próximo a vencimiento.",
+    "read": false
+  },
+  {
+    "id": 3,
+    "role": "Manager",
+    "title": "Evaluaciones pendientes",
+    "body": "Completa las evaluaciones del período actual.",
+    "read": false
+  }
+]

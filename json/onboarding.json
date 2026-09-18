@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "employeeId": 1045,
+    "startDate": "2026-09-16",
+    "progress": 60,
+    "buddyEmployeeId": 1008,
+    "status": "In Progress",
+    "tasks": [
+      {
+        "name": "Documentación contractual",
+        "done": true
+      },
+      {
+        "name": "Alta de correo y accesos",
+        "done": true
+      },
+      {
+        "name": "Inducción de cultura",
+        "done": true
+      },
+      {
+        "name": "Presentación con equipo",
+        "done": false
+      },
+      {
+        "name": "Plan 30-60-90",
+        "done": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "employeeId": 1046,
+    "startDate": "2026-09-18",
+    "progress": 25,
+    "buddyEmployeeId": 1011,
+    "status": "In Progress",
+    "tasks": [
+      {
+        "name": "Documentación contractual",
+        "done": true
+      },
+      {
+        "name": "Alta de correo y accesos",
+        "done": false
+      },
+      {
+        "name": "Inducción de cultura",
+        "done": false
+      },
+      {
+        "name": "Presentación con equipo",
+        "done": false
+      },
+      {
+        "name": "Plan 30-60-90",
+        "done": false
+      }
+    ]
+  }
+]

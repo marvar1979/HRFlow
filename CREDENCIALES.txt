@@ -1,0 +1,25 @@
+HRFlow — Credenciales Demo
+
+HR Admin
+admin@hrflow.local
+Admin123!
+
+HR Manager
+hr@hrflow.local
+Hr123!
+
+Manager
+manager@hrflow.local
+Manager123!
+
+Recruiter
+recruiter@hrflow.local
+Recruit123!
+
+Payroll
+payroll@hrflow.local
+Payroll123!
+
+Employee
+employee@hrflow.local
+Employee123!

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 101,
+    "name": "Tecnología",
+    "code": "TECH",
+    "managerId": 3,
+    "budget": 480000,
+    "location": "La Paz",
+    "color": "#2563eb",
+    "status": "Active"
+  },
+  {
+    "id": 102,
+    "name": "Recursos Humanos",
+    "code": "HR",
+    "managerId": 2,
+    "budget": 185000,
+    "location": "Cochabamba",
+    "color": "#0f766e",
+    "status": "Active"
+  },
+  {
+    "id": 103,
+    "name": "Finanzas",
+    "code": "FIN",
+    "managerId": 5,
+    "budget": 240000,
+    "location": "La Paz",
+    "color": "#7c3aed",
+    "status": "Active"
+  },
+  {
+    "id": 104,
+    "name": "Marketing",
+    "code": "MKT",
+    "managerId": 4,
+    "budget": 210000,
+    "location": "Santa Cruz",
+    "color": "#e11d48",
+    "status": "Active"
+  },
+  {
+    "id": 105,
+    "name": "Operaciones",
+    "code": "OPS",
+    "managerId": 3,
+    "budget": 330000,
+    "location": "Cochabamba",
+    "color": "#d97706",
+    "status": "Active"
+  },
+  {
+    "id": 106,
+    "name": "Ventas",
+    "code": "SAL",
+    "managerId": 3,
+    "budget": 290000,
+    "location": "Santa Cruz",
+    "color": "#059669",
+    "status": "Active"
+  }
+]

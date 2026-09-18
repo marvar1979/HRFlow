@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Andrea Rojas",
+    "role": "HR Admin",
+    "email": "admin@hrflow.local",
+    "password": "Admin123!",
+    "avatar": "AR"
+  },
+  {
+    "id": 2,
+    "name": "Lucía Mendoza",
+    "role": "HR Manager",
+    "email": "hr@hrflow.local",
+    "password": "Hr123!",
+    "avatar": "LM"
+  },
+  {
+    "id": 3,
+    "name": "Diego Salvatierra",
+    "role": "Manager",
+    "email": "manager@hrflow.local",
+    "password": "Manager123!",
+    "avatar": "DS"
+  },
+  {
+    "id": 4,
+    "name": "Camila Paredes",
+    "role": "Recruiter",
+    "email": "recruiter@hrflow.local",
+    "password": "Recruit123!",
+    "avatar": "CP"
+  },
+  {
+    "id": 5,
+    "name": "Jorge Quiroga",
+    "role": "Payroll",
+    "email": "payroll@hrflow.local",
+    "password": "Payroll123!",
+    "avatar": "JQ"
+  },
+  {
+    "id": 6,
+    "name": "Mariel Vargas",
+    "role": "Employee",
+    "email": "employee@hrflow.local",
+    "password": "Employee123!",
+    "avatar": "MV"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "companyName": "HRFlow Company",
+  "timezone": "America/La_Paz",
+  "workdayStart": "08:30",
+  "workdayEnd": "17:30",
+  "annualLeaveDays": 18,
+  "theme": "light",
+  "currency": "BOB"
+}
